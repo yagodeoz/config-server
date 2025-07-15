@@ -1,0 +1,22 @@
+version: '3.9'
+
+services:
+  config-server:
+    image: ghcr.io/${GHCR_USER}/ecosistema-config-server:latest}
+    container_name: config-server
+    ports:
+      - "${SERVER_PORT:-8888}:8888"
+    environment:
+      SERVER_PORT: ${SERVER_PORT:-8888}
+      GIT_REPO_URI: ${GIT_REPO_URI}
+      GIT_BRANCH: ${GIT_BRANCH:-main}
+      GIT_USERNAME: ${GIT_USERNAME}
+      GITHUB_TOKEN: ${GITHUB_TOKEN}
+    networks:
+      - ecosistema-net
+    restart: unless-stopped
+
+networks:
+  ecosistema-net:
+    name: ecosistema-net
+    driver: bridge

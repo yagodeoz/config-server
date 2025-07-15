@@ -2,7 +2,10 @@ version: '3.9'
 
 services:
   config-server:
-    image: ghcr.io/${GHCR_USER}/ecosistema-config-server:${CONFIG_SERVER_TAG:-latest}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ghcr.io/${GHCR_USER}/ecosistema-config-server:${CONFIG_SERVER_TAG}
     container_name: config-server
     ports:
       - "${SERVER_PORT:-8888}:8888"
