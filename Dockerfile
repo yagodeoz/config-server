@@ -22,7 +22,7 @@ COPY --from=build /app/target/*.jar app.jar
 # Exponer el puerto de Config Server
 EXPOSE 8888
 
-# Variables que necesita
+# Variables que necesita quedan documentados
 ENV GITHUB_TOKEN=""
 ENV SERVER_PORT=8888
 ENV GIT_REPO_URI=https://github.com/byronsegovia/ecosistema-config-server
