@@ -11,3 +11,15 @@ spring:
           clone-on-start: true
           username: ${GIT_USERNAME}
           password: ${GITHUB_TOKEN}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+
+
